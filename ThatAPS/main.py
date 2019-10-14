@@ -19,7 +19,22 @@ while( escolha < 1 or escolha > 5):
     print("Numero invalido, Porfavor escolha um numero entre 1 e 5")
     escolha = int(input('Escolha: '))
 
-localizacao_usuario = Coordenadas(-22.927063, -47.042617) #PENSAR EM ALGUMA FORMA DE PEDIR A LOCALIZAÇÃO PRO USUÁRIO
+#localizacao_usuario = Coordenadas(-22.927063, -47.042617) #PENSAR EM ALGUMA FORMA DE PEDIR A LOCALIZAÇÃO PRO USUÁRIO
+
+
+lat = 0
+long = 0
+
+while True:
+  try:
+     lat = float(input('Insira a Latitude: '))
+     long = float(input('Insira a Longitude: '))
+  except ValueError:
+     print("Informe um Numero VALIDO!")
+     continue
+  else:
+     localizacao_usuario = Coordenadas(lat, long)
+     break
 
 perto = -1
 for reciclar in centros.get(escolha):
