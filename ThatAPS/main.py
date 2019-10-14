@@ -1,9 +1,9 @@
 from emp_reciclagem import Coordenadas
-from dicionario import centros,calculoD
+from dicionario import centros, calculoD
 
 print(""" 
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
- Olá, Porfavor informe o time de lixo que será reciclado:
+ Olá, Por favor informe o tipo de lixo que será reciclado:
  
  1 - Eletrônico
  2 - Papel
@@ -43,7 +43,10 @@ for reciclar in centros.get(escolha):
         perto = distancia
         empresa_perto = reciclar
 
-print(f'A empresa mais perto é {empresa_perto.nome_emp}')
+print(f'Empresa mais proxima: {empresa_perto.nome_emp}',
+      f'\nEndereço: {empresa_perto.endereco}',
+      f'\nTelefone: {empresa_perto.telefone}',
+      f'\nE-mail: {empresa_perto.email}')
 
 
 
