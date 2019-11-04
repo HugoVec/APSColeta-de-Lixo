@@ -13,28 +13,35 @@ print("""
 -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
  
 """)
-escolha = int(input('Escolha: '))
 
-while( escolha < 1 or escolha > 5):
+#Checa se a escolha digitada é um numero!
+while True:
+    try:
+        escolha = int(input('Escolha: '))
+    except ValueError:
+        print("Informe um Numero!!")
+        continue
+    break
+
+#Checa se a escolha digitada esta entre 1 e 5
+while escolha < 1 or escolha > 5:
     print("Numero invalido, Porfavor escolha um numero entre 1 e 5")
     escolha = int(input('Escolha: '))
-
-#localizacao_usuario = Coordenadas(-22.927063, -47.042617) #PENSAR EM ALGUMA FORMA DE PEDIR A LOCALIZAÇÃO PRO USUÁRIO
-
 
 lat = 0
 long = 0
 
+#Checa se o usuário esta informando apenas numeros na latitude e na longitude
 while True:
-  try:
-     lat = float(input('Insira a Latitude: '))
-     long = float(input('Insira a Longitude: '))
-  except ValueError:
-     print("Informe um Numero VALIDO!")
-     continue
-  else:
-     localizacao_usuario = Coordenadas(lat, long)
-     break
+    try:
+        lat = float(input('Insira a Latitude: '))
+        long = float(input('Insira a Longitude: '))
+    except ValueError:
+        print("Informe um Numero VALIDO!")
+        continue
+    else:
+        localizacao_usuario = Coordenadas(lat, long)
+        break
 
 perto = -1
 for reciclar in centros.get(escolha):
@@ -43,25 +50,9 @@ for reciclar in centros.get(escolha):
         perto = distancia
         empresa_perto = reciclar
 
-print(f'Empresa mais proxima: {empresa_perto.nome_emp}',
-      f'\nEndereço: {empresa_perto.endereco}',
-      f'\nTelefone: {empresa_perto.telefone}',
-      f'\nE-mail: {empresa_perto.email}')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+print(35 * '-')
+print(f'Empresa mais proxima: {empresa_perto.nome_emp}')
+print(f'Endereço: {empresa_perto.endereco}')
+print(f'Telefone: {empresa_perto.telefone}')
+print(f'E-mail: {empresa_perto.email}')
+print(35 * '-')
